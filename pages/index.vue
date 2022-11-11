@@ -1,6 +1,18 @@
 <template>
   <div class="font-noto">
-    <h1>Title</h1>
+    <!--
+      flex-col: flex-direction: column; 子要素を縦並びにする
+      items-center: align-items: center; 縦並びのときは横方向のセンター揃え
+      justify-center: justify-content: center; 縦並びのときは縦方向のセンター揃え
+     -->
+    <div
+      class="mv flex h-[460px] flex-col items-center justify-center text-white md:h-[600px]"
+    >
+      <h1 class="mv__title mb-2.5 text-7xl font-bold md:text-[160px]">START</h1>
+      <p class="mv__catch text-xl font-medium md:text-2xl">
+        仕事に最高のスタートを。
+      </p>
+    </div>
   </div>
 </template>
 <script>
@@ -10,12 +22,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
-  color: red;
-  &__logo {
-    color: blue;
+.mv {
+  background: url(~/assets/img/bg_mv_sp.png) no-repeat 0 0;
+  background-size: cover;
+  @media (min-width: 768px) {
+    background-image: url(~/assets/img/bg_mv_pc.png);
+  }
+  &__title {
+  }
+  &__catch {
   }
 }
+
 .row-grid {
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
