@@ -9,7 +9,7 @@
     <!-- hidden → display: none -->
     <!-- ! →  !important -->
     <button
-      class="header__btn-menu hamburger hamburger--slider md:!hidden"
+      class="header__btn-menu hamburger hamburger--slider z-50 md:!hidden"
       type="button"
       :class="navOpen ? 'is-active' : ''"
       @click="navOpen = !navOpen"
@@ -19,7 +19,7 @@
       </span>
     </button>
     <nav
-      class="header__nav fixed right-0 h-screen w-52 bg-[#DD1B57] md:static md:block md:h-auto md:w-auto md:bg-transparent md:pr-16"
+      class="header__nav fixed right-0 z-40 h-screen w-52 bg-[#DD1B57] md:static md:block md:h-auto md:w-auto md:bg-transparent md:pr-16"
       :class="navOpen ? 'block' : 'hidden'"
     >
       <ul class="header__nav-list mt-24 pl-10 md:mt-0 md:flex md:pl-0">
@@ -40,6 +40,11 @@
         </li>
       </ul>
     </nav>
+    <div
+      class="header__bg-nav fixed z-30 h-screen w-screen md:hidden"
+      :class="navOpen ? 'block' : 'hidden'"
+      @click="navOpen = !navOpen"
+    ></div>
   </div>
 </template>
 
@@ -111,7 +116,6 @@ $hamburger-types: (slider) !default;
   }
   &__btn-menu {
     background-color: #dd1b57;
-    border: 1px solid #707070;
     line-height: 1;
     .hamburger-box {
       vertical-align: top;
