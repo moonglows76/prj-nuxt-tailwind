@@ -13,11 +13,45 @@
         仕事に最高のスタートを。
       </p>
     </div>
+    <section class="sec-news">
+      <h2 class="sec-news__heading">ニュース</h2>
+      <dl class="sec-news__list">
+        <!-- ===== -->
+        <div
+          class="sec-news__item"
+          v-for="newsContent in newsContents"
+          :key="newsContent.title"
+        >
+          <dt class="sec-news__date">{{ newsContent.date }}</dt>
+          <dd class="sec-news__title">{{ newsContent.title }}</dd>
+        </div>
+        <!-- ===== -->
+      </dl>
+    </section>
+    <!-- /.sec-news -->
   </div>
 </template>
 <script>
 export default {
-  name: 'IndexPage',
+  data() {
+    return {
+      newsContents: [
+        {
+          date: '2023.02.10',
+          title: 'コーポレートサイトをリニューアルしました。',
+        },
+        {
+          date: '2023.02.08',
+          title: '採用を強化中です！一緒に働きませんか？',
+        },
+        {
+          date: '2022.02.02',
+          title:
+            '人材紹介SNS『スタート』をリリースしました。3/31まで新規登録キャンペーンを開催中です！サービス内で使える500ポイントをプレゼント！',
+        },
+      ],
+    }
+  },
 }
 </script>
 
